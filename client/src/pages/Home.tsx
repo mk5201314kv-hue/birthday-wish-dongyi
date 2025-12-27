@@ -1,25 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import { useEffect, useRef } from 'react';
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Redirect to the static HTML file
+    window.location.href = '/index.html';
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div ref={containerRef} className="w-full h-screen flex items-center justify-center bg-[#010103]">
+      <div className="text-white text-center">
+        <div className="animate-pulse">✨ 星光汇聚中...</div>
+      </div>
     </div>
   );
 }
